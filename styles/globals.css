@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+:root {
+  /* ===== LUXURY WOMEN BOUTIQUE PALETTE ===== */
+  --background: #fffafb;
+  --foreground: #241f23;
+
+  --primary-pink: #ec4899;
+  --primary-rose: #db2777;
+  --light-pink: #fbcfe8;
+  --blush-pink: #fdf2f8;
+  --mist-pink: #fff1f6;
+
+  --warm-white: #ffffff;
+  --ivory: #fffdfd;
+  --soft-cream: #fff7fa;
+
+  --gray-text: #6b7280;
+  --muted-text: #9ca3af;
+  --line-color: #f5d6e3;
+
+  /* shadows */
+  --shadow-soft: 0 12px 32px rgba(236, 72, 153, 0.08);
+  --shadow-hover: 0 22px 45px rgba(236, 72, 153, 0.14);
+  --shadow-glow: 0 0 35px rgba(252, 165, 207, 0.18);
+  --shadow-premium: 0 20px 50px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(236, 72, 153, 0.1);
+
+  /* luxury gold */
+  --gold-primary: #d4af37;
+  --gold-soft: #f4e3b1;
+  --gold-gradient: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #f4e3b1 50%,
+    #d4af37 100%
+  );
+
+  /* radius */
+  --radius-xl: 1.3rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+}
+
+@theme {
+  --color-primary-pink: var(--primary-pink);
+  --color-primary-rose: var(--primary-rose);
+  --color-light-pink: var(--light-pink);
+  --color-blush-pink: var(--blush-pink);
+  --color-mist-pink: var(--mist-pink);
+
+  --color-soft-bg: var(--background);
+  --color-dark-text: var(--foreground);
+  --color-gray-text: var(--gray-text);
+  --color-muted-text: var(--muted-text);
+  --color-line-color: var(--line-color);
+
+  --color-warm-white: var(--warm-white);
+  --color-ivory: var(--ivory);
+  --color-soft-cream: var(--soft-cream);
+
+  --color-gold: var(--gold-primary);
+  --color-gold-soft: var(--gold-soft);
+
+  --shadow-premium: var(--shadow-premium);
+  --shadow-glass: var(--shadow-glass);
+}
+
+@layer base {
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glassmorphism-dark {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gold {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gold-gradient {
+    background: var(--gold-gradient);
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-reveal {
+    animation: text-reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  }
+
+  @keyframes text-reveal {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(252, 231, 243, 0.95),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(251, 207, 232, 0.55),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at bottom center,
+      rgba(253, 242, 248, 0.9),
+      transparent 35%
+    ),
+    linear-gradient(to bottom, #fffafb, #ffffff);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== elegant text selection ===== */
+::selection {
+  background: rgba(236, 72, 153, 0.16);
+  color: #241f23;
+}
+
+/* ===== luxury scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff7fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f3b6d1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ec4899;
+}
+
+/* ===== reusable premium glass card ===== */
+.premium-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(245, 214, 227, 0.75);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ===== hover luxury lift ===== */
+.premium-hover {
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.premium-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===== pink gradient boutique button ===== */
+.luxury-btn {
+  background: linear-gradient(
+    to right,
+    var(--primary-pink),
+    var(--primary-rose)
+  );
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.35s ease;
+}
+
+.luxury-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===== soft white outline button ===== */
+.soft-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 214, 227, 0.8);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.soft-btn:hover {
+  border-color: var(--primary-pink);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== luxury inputs ===== */
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 214, 227, 0.8);
+  border-radius: 999px;
+  padding: 0.95rem 1.2rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+textarea {
+  border-radius: 1.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.08);
+}
+
+/* ===== elegant headings helper ===== */
+.luxury-heading {
+  font-family: var(--font-playfair), serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ===== pink mist glowing backgrounds ===== */
+.pink-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ===== image smoothness ===== */
+img {
+  image-rendering: auto;
+}
+
+/* ===== link animation ===== */
+a {
+  transition: all 0.3s ease;
+}
+
+/* ===== section breathing ===== */
+section {
+  position: relative;
+}
